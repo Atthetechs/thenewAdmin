@@ -5,6 +5,7 @@ import { Link, NavLink, useHistory } from 'react-router-dom';
 import HtmlHead from 'components/html-head/HtmlHead';
 import CsLineIcons from 'cs-line-icons/CsLineIcons';
 import { useDispatch, useSelector } from 'react-redux';
+import moment from 'moment';
 
 const SupportTicketsDetail = () => {
   const router = useHistory();
@@ -16,10 +17,15 @@ const SupportTicketsDetail = () => {
 
   useEffect(() => {
     dispatch({ type: 'CONTACT_DETAILS', payload: Id });
+    dispatch({ type: 'CONTACTSEEN', payload: Id });
   }, []);
 
   const { contactDetail } = useSelector((state) => state.reduce);
   console.log(contactDetail);
+  const date = new Date(contactDetail?.createdAt);
+  const MessageDate = moment(date).format('DD MMM YYYY');
+  const time = moment(date).format('HH:mm');
+
   return (
     <>
       <HtmlHead title={title} description={description} />
@@ -84,7 +90,7 @@ const SupportTicketsDetail = () => {
                             xs="12"
                             className="order-3 order-sm-0 col-sm-auto sw-sm-11 sw-sm-11 lh-1-5 text-small text-muted text-sm-end d-flex flex-column justify-content-sm-center"
                           >
-                            12 Feb 2021 19:25
+                            {MessageDate} {time}
                           </Col>
                         </Row>
                       </Col>

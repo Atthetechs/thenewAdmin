@@ -47,7 +47,11 @@ const ForgotPassword = () => {
       <div className="sw-lg-50 px-5">
         <div className="sh-11">
           <NavLink to="/">
-            <div className="logo-default" />
+            <div className="logo position-relative">
+              <div className="imgs">
+                <img src="/img/favicon/favicon2.png" height={100} alt="logo" />
+              </div>
+            </div>
           </NavLink>
         </div>
         <div className="mb-5">

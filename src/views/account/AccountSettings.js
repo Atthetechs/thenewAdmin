@@ -98,7 +98,7 @@ const AccountSettings = () => {
         {/* Public Info End */}
 
         {/* Email Settings Start */}
-        <h2 className="small-title">Email Settings</h2>
+        {/* <h2 className="small-title">Email Settings</h2>
         <Card className="mb-5">
           <Card.Body>
             <Form className="d-flex flex-column">
@@ -150,11 +150,11 @@ const AccountSettings = () => {
             </Form>
             <Button variant="primary">Update</Button>
           </Card.Body>
-        </Card>
+        </Card> */}
         {/* Email Settings End */}
 
         {/* Language Settings Start */}
-        <h2 className="small-title">Language Settings</h2>
+        {/* <h2 className="small-title">Language Settings</h2>
         <Card>
           <Card.Body>
             <Form className="d-flex flex-column">
@@ -165,7 +165,7 @@ const AccountSettings = () => {
             </Form>
             <Button variant="primary">Update</Button>
           </Card.Body>
-        </Card>
+        </Card> */}
         {/* Language Settings End */}
       </Col>
     </>

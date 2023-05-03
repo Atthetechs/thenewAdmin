@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
     document.documentElement.click();
     window.scrollTo(0, 0);
     // eslint-disable-next-line
-    }, [pathname]);
+  }, [pathname]);
   return (
     <>
       <Nav />
@@ -31,7 +31,7 @@ const Layout = ({ children }) => {
         </Container>
       </main>
       <Footer />
-      <RightButtons />
+      {/* <RightButtons /> */}
     </>
   );
 };

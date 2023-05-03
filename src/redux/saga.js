@@ -42,11 +42,19 @@ function* ContactDelete({ payload }) {
     console.log(error, 'error');
   }
 }
-
+function* ContactSeen({ payload }) {
+  try {
+    const Respo = yield call(axios.patch, `/updateRecord/${payload}`);
+    console.log(Respo.data, 'pathrecord');
+  } catch (error) {
+    console.log(error, 'error');
+  }
+}
 function* homesaga() {
   yield takeLatest('UPLOAD', UploadImages);
   yield takeLatest('CONTACTS', Contact);
   yield takeLatest('CONTACT_DETAILS', ContactDetail);
   yield takeLatest('CONTACT_DELETE', ContactDelete);
+  yield takeLatest('CONTACTSEEN', ContactSeen);
 }
 export default homesaga;

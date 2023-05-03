@@ -61,7 +61,7 @@ const Nav = () => {
         <NavLogo />
         <NavLanguageSwitcher />
         <NavUserMenu />
-        {/* <NavIconMenu /> */}
+        <NavIconMenu />
         <MainMenu />
         <NavMobileButtons />
       </div>

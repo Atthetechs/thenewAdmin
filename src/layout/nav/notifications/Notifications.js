@@ -30,11 +30,13 @@ const NotificationsDropdownToggle = React.memo(
     </a>
   ))
 );
-const NotificationItem = ({ img = '', link = '', detail = '' }) => (
+const NotificationItem = ({ detail = '', name = '', id = '' }) => (
   <li className="mb-3 pb-3 border-bottom border-separator-light d-flex">
-    <img src={img} className="me-3 sw-4 sh-4 rounded-xl align-self-center" alt="notification" />
+    <img src="/img/favicon/favicon2.png" className="me-3 sw-4 sh-4 rounded-xl align-self-center" alt="notification" />
     <div className="align-self-center">
-      <NavLink to={link} activeClassName="">
+      <NavLink to={`/support/messages/detail?id=${id}`} activeClassName="">
+        {name}
+        <br />
         {detail}
       </NavLink>
     </div>
@@ -54,7 +56,7 @@ const NotificationsDropdownMenu = React.memo(
         >
           <ul className="list-unstyled border-last-none">
             {items.map((item, itemIndex) => (
-              <NotificationItem key={`notificationItem.${itemIndex}`} detail={item.detail} link={item.link} img={item.img} />
+              <NotificationItem key={`notificationItem.${itemIndex}`} detail={item.field} name={item.fullName} id={item?.id} />
             ))}
           </ul>
         </OverlayScrollbarsComponent>
@@ -76,10 +78,13 @@ const Notifications = () => {
   } = useSelector((state) => state.menu);
   const { color } = useSelector((state) => state.settings);
   const { items } = useSelector((state) => state.notification);
+  const { contact } = useSelector((state) => state.reduce);
   const { showingNavMenu } = useSelector((state) => state.layout);
-
+  const Item = contact.filter((data) => data.isActive === false);
+  console.log(Item, 'item');
   useEffect(() => {
     dispatch(fetchNotifications());
+    dispatch({ type: 'CONTACTS' });
     return () => {};
     // eslint-disable-next-line
   }, []);
@@ -107,7 +112,7 @@ const Notifications = () => {
         <Dropdown.Toggle as={NotificationsDropdownToggle} />
         <Dropdown.Menu
           as={NotificationsDropdownMenu}
-          items={items}
+          items={Item}
           popperConfig={{
             modifiers: [
               {

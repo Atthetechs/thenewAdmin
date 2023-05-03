@@ -56,7 +56,7 @@ const RightButtons = () => {
         </OverlayTrigger>
       </div>
       <SettingsModal show={isShowSettingsModal} handleClose={closeSettingsModal} />
-      <NichesModal show={isShowNichesModal} handleClose={closeNichesModal} />
+      {/* <NichesModal show={isShowNichesModal} handleClose={closeNichesModal} /> */}
     </>
   );
 };

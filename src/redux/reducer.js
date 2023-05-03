@@ -4,6 +4,7 @@ const initialState = {
   slider: '',
   contact: [],
   contactDetail: {},
+  notif: [],
 };
 
 const Reducer = createSlice({

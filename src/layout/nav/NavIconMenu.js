@@ -46,7 +46,7 @@ const NavIconMenu = () => {
             <CsLineIcons icon="search" size="18" />
           </a>
         </li>
-        <li className="list-inline-item">
+        {/* <li className="list-inline-item">
           <a
             href="#/"
             id="pinButton"
@@ -56,7 +56,7 @@ const NavIconMenu = () => {
             <CsLineIcons icon="lock-on" size="18" className="unpin" />
             <CsLineIcons icon="lock-off" size="18" className="pin" />
           </a>
-        </li>
+        </li> */}
         <li className="list-inline-item">
           <a href="#/" id="colorButton" onClick={onLightDarkModeClick}>
             <CsLineIcons icon="light-on" size="18" className="light" />

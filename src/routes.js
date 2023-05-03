@@ -44,34 +44,34 @@ const routesAndMenuItems = {
       path: DEFAULT_PATHS.APP,
       exact: true,
       redirect: true,
-      to: `${appRoot}/dashboard/getting-started`,
+      to: `${appRoot}/login`,
     },
-    {
-      path: `${appRoot}/blog`,
-      component: blog,
-      label: 'menu.blog',
-      icon: 'file-text',
-    },
-    {
-      path: `${appRoot}/upgrade`,
-      label: 'menu.upgrade',
-      icon: 'trend-up',
-      component: upgrade,
-    },
-    {
-      path: `${appRoot}/community`,
-      label: 'menu.community',
-      icon: 'messages',
-      component: community.index,
-      subs: [
-        {
-          path: '/list',
-          label: 'menu.community-list',
-          hideInMenu: true,
-          component: community.list,
-        },
-      ],
-    },
+    // {
+    //   path: `${appRoot}/blog`,
+    //   component: blog,
+    //   label: 'menu.blog',
+    //   icon: 'file-text',
+    // },
+    // {
+    //   path: `${appRoot}/upgrade`,
+    //   label: 'menu.upgrade',
+    //   icon: 'trend-up',
+    //   component: upgrade,
+    // },
+    // {
+    //   path: `${appRoot}/community`,
+    //   label: 'menu.community',
+    //   icon: 'messages',
+    //   component: community.index,
+    //   subs: [
+    //     {
+    //       path: '/list',
+    //       label: 'menu.community-list',
+    //       hideInMenu: true,
+    //       component: community.list,
+    //     },
+    //   ],
+    // },
   ],
   sidebarItems: [
     {
@@ -112,8 +112,8 @@ const routesAndMenuItems = {
           subs: [{ path: '/folder', label: 'menu.storage', hideInMenu: true, component: services.storageFolder }],
         },
         { path: '/storage-folder', component: services.storageFolder, hideInMenu: true },
-        { path: '/hosting', label: 'menu.hosting', icon: 'router', component: services.hosting },
-        { path: '/users', label: 'menu.users', icon: 'user', component: services.users },
+        // { path: '/hosting', label: 'menu.hosting', icon: 'router', component: services.hosting },
+        // { path: '/users', label: 'menu.users', icon: 'user', component: services.users },
       ],
     },
     {
@@ -125,7 +125,7 @@ const routesAndMenuItems = {
       to: `${appRoot}/account/settings`,
       subs: [
         { path: '/settings', label: 'menu.settings', icon: 'gear', component: account.settings },
-        { path: '/billing', label: 'menu.billing', icon: 'credit-card', component: account.billing },
+        // { path: '/billing', label: 'menu.billing', icon: 'credit-card', component: account.billing },
         { path: '/security', label: 'menu.security', icon: 'shield', component: account.security },
       ],
     },
@@ -137,14 +137,14 @@ const routesAndMenuItems = {
       redirect: true,
       to: `${appRoot}/support/docs`,
       subs: [
-        {
-          path: '/docs',
-          label: 'menu.docs',
-          icon: 'file-empty',
-          component: support.docs,
-          subs: [{ path: '/detail', label: 'menu.docs', icon: 'file-empty', component: support.docsDetail, hideInMenu: true }],
-        },
-        { path: '/knowledge-base', label: 'menu.knowledge-base', icon: 'notebook-1', component: support.knowledgeBase },
+        //     {
+        //       path: '/docs',
+        //       label: 'menu.docs',
+        //       icon: 'file-empty',
+        //       component: support.docs,
+        //       subs: [{ path: '/detail', label: 'menu.docs', icon: 'file-empty', component: support.docsDetail, hideInMenu: true }],
+        //     },
+        //     { path: '/knowledge-base', label: 'menu.knowledge-base', icon: 'notebook-1', component: support.knowledgeBase },
         {
           path: '/messages',
           label: 'menu.tickets',

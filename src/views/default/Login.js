@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink, useHistory } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
@@ -8,6 +8,7 @@ import CsLineIcons from 'cs-line-icons/CsLineIcons';
 import HtmlHead from 'components/html-head/HtmlHead';
 
 const Login = () => {
+  const router = useHistory();
   const title = 'Login';
   const description = 'Login Page';
 
@@ -48,7 +49,11 @@ const Login = () => {
       <div className="sw-lg-50 px-5">
         <div className="sh-11">
           <NavLink to="/">
-            <div className="logo-default" />
+            <div className="logo position-relative">
+              <div className="imgs">
+                <img src="/img/favicon/favicon2.png" height={100} alt="logo" />
+              </div>
+            </div>
           </NavLink>
         </div>
         <div className="mb-5">
@@ -76,7 +81,7 @@ const Login = () => {
               </NavLink>
               {errors.password && touched.password && <div className="d-block invalid-tooltip">{errors.password}</div>}
             </div>
-            <Button size="lg" type="submit">
+            <Button onClick={() => router.push('/dashboard/getting-started')} size="lg" type="submit">
               Login
             </Button>
           </form>

@@ -30,7 +30,7 @@ const SupportTickets = () => {
     const values = e.target.value;
     setText(values);
   };
-  console.log(AllContact, 'all');
+
   return (
     <>
       <HtmlHead title={title} description={description} />
@@ -114,38 +114,71 @@ const SupportTickets = () => {
           {/* List Header End */}
 
           {/* List Items Start */}
-          {AllContact?.map((data, i) => (
-            <Card key={i} className="hover-border-primary mb-2">
-              <Card.Body className="pt-0 pb-0 sh-22 sh-md-7">
-                <Row className="g-0 h-100 align-content-center cursor-default">
-                  <Col xs="6" md="1" className="d-flex flex-column justify-content-center mb-2 mb-md-0 order-1 order-md-1 h-md-100 ">
-                    <div className="text-muted text-small d-md-none">Id</div>
-                    <NavLink to={`/support/messages/detail?id=${data?.id}`} className="stretched-link h-100 d-flex body-link align-items-center fw-bold">
-                      {data?.id}
-                    </NavLink>
-                  </Col>
-                  <Col xs="12" md="3" className="d-flex flex-column justify-content-center mb-2 mb-md-0 order-3 order-md-2">
-                    <div className="text-muted text-small d-md-none">Name</div>
-                    <div className="text-body fw-bold">{data?.fullName}</div>
-                  </Col>
-                  <Col xs="12" md="4" className="d-flex flex-column justify-content-center mb-2 mb-md-0 order-4 order-md-3">
-                    <div className="text-muted text-small d-md-none">Category</div>
-                    <div className="text-body fw-bold">{data?.field}</div>
-                  </Col>
-                  <Col xs="12" md="2" className="d-flex flex-column justify-content-center mb-2 mb-md-0 order-4 order-md-3">
-                    <div className="text-muted text-small d-md-none">Category</div>
-                    <div className="text-body fw-bold">{data?.emailAddress}</div>
-                  </Col>
-                  <Col xs="6" md="2" className="d-flex flex-column justify-content-center align-items-md-end mb-2 mb-md-0 order-2 order-md-5">
-                    <div className="text-muted text-small d-md-none">Status</div>
-                    <div>
-                      <Badge bg="outline-primary">ACTIVE</Badge>
-                    </div>
-                  </Col>
-                </Row>
-              </Card.Body>
-            </Card>
-          ))}
+          {AllContact?.map((data, i) => {
+            return data?.isActive === false ? (
+              <Card key={i} className="hover-border-primary mb-2">
+                <Card.Body className="pt-0 pb-0 sh-22 sh-md-7">
+                  <Row className="g-0 h-100 align-content-center cursor-default">
+                    <Col xs="6" md="1" className="d-flex flex-column justify-content-center mb-2 mb-md-0 order-1 order-md-1 h-md-100 ">
+                      <div className="text-muted text-small d-md-none">Id</div>
+                      <NavLink to={`/support/messages/detail?id=${data?.id}`} className="stretched-link h-100 d-flex body-link align-items-center fw-bold">
+                        {data?.id}
+                      </NavLink>
+                    </Col>
+                    <Col xs="12" md="3" className="d-flex flex-column justify-content-center mb-2 mb-md-0 order-3 order-md-2">
+                      <div className="text-muted text-small d-md-none">Name</div>
+                      <div className="text-body fw-bold">{data?.fullName}</div>
+                    </Col>
+                    <Col xs="12" md="4" className="d-flex flex-column justify-content-center mb-2 mb-md-0 order-4 order-md-3">
+                      <div className="text-muted text-small d-md-none">Category</div>
+                      <div className="text-body fw-bold">{data?.field}</div>
+                    </Col>
+                    <Col xs="12" md="2" className="d-flex flex-column justify-content-center mb-2 mb-md-0 order-4 order-md-3">
+                      <div className="text-muted text-small d-md-none">Email</div>
+                      <div className="text-body fw-bold">{data?.emailAddress}</div>
+                    </Col>
+                    <Col xs="6" md="2" className="d-flex flex-column justify-content-center align-items-md-end mb-2 mb-md-0 order-2 order-md-5">
+                      <div className="text-muted text-small d-md-none">Status</div>
+                      <div>
+                        <Badge bg="outline-primary">See</Badge>
+                      </div>
+                    </Col>
+                  </Row>
+                </Card.Body>
+              </Card>
+            ) : (
+              <Card className="hover-border-primary mb-2">
+                <Card.Body className="pt-0 pb-0 sh-22 sh-md-7">
+                  <Row className="g-0 h-100 align-content-center cursor-default">
+                    <Col xs="6" md="1" className="d-flex flex-column justify-content-center mb-2 mb-md-0 order-1 order-md-1 h-md-100 ">
+                      <div className="text-muted text-small d-md-none">Id</div>
+                      <NavLink to={`/support/messages/detail?id=${data?.id}`} className="stretched-link h-100 d-flex body-link align-items-center">
+                        {data?.id}
+                      </NavLink>
+                    </Col>
+                    <Col xs="12" md="3" className="d-flex flex-column justify-content-center mb-2 mb-md-0 order-3 order-md-2">
+                      <div className="text-muted text-small d-md-none">Name</div>
+                      <div className="text-body fw-bold">{data?.fullName}</div>
+                    </Col>
+                    <Col xs="12" md="4" className="d-flex flex-column justify-content-center mb-2 mb-md-0 order-4 order-md-3">
+                      <div className="text-muted text-small d-md-none">Category</div>
+                      <div className="text-body fw-bold">{data?.field}</div>
+                    </Col>
+                    <Col xs="12" md="2" className="d-flex flex-column justify-content-center mb-2 mb-md-0 order-4 order-md-3">
+                      <div className="text-muted text-small d-md-none">Email</div>
+                      <div className="text-body fw-bold">{data?.emailAddress}</div>
+                    </Col>
+                    <Col xs="6" md="2" className="d-flex flex-column justify-content-center align-items-md-end mb-2 mb-md-0 order-2 order-md-5">
+                      <div className="text-muted text-small d-md-none">Status</div>
+                      <div>
+                        <Badge bg="outline-primary">Seen</Badge>
+                      </div>
+                    </Col>
+                  </Row>
+                </Card.Body>
+              </Card>
+            );
+          })}
           {/* <Card className="hover-border-primary mb-2">
             <Card.Body className="pt-0 pb-0 sh-22 sh-md-7">
               <Row className="g-0 h-100 align-content-center cursor-default">
