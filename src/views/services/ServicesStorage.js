@@ -11,7 +11,6 @@ import 'react-image-lightbox/style.css';
 import 'react-dropzone-uploader/dist/styles.css';
 import { useDispatch } from 'react-redux';
 
-
 const ServicesStorage = () => {
   const dispatch = useDispatch();
   const title = 'Storage';

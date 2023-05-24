@@ -158,7 +158,7 @@ const enMessages = {
   'menu.support': 'es|Support',
   'menu.docs': 'es|Docs',
   'menu.docsdetail': 'es|Docs Detail',
-  'menu.tickets': 'es|Tickets',
+  'menu.tickets': 'Messages',
   'menu.tickets-detail': 'es|Teicket Detail',
 
   'menu.elearning': 'es|Elearning',

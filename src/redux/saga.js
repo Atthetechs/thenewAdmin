@@ -2,7 +2,7 @@ import axios from 'axios';
 import { call, put, takeLatest } from 'redux-saga/effects';
 import * as actions from './reducer';
 
-axios.defaults.baseURL = 'http://localhost:5000/api/';
+axios.defaults.baseURL = 'https://backend.theneoconsultancy.com/api/';
 
 function* UploadImages({ payload }) {
   try {
